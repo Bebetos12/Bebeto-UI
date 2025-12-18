@@ -1,0 +1,98 @@
+.header {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.nav-container {
+  background-color: #111111; // Deep black/gray from image
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 15px;
+  border-radius: 100px; // Capsule shape
+  width: 100%;
+  max-width: 900px; // Adjust based on your preference
+  height: 70px;
+}
+
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  
+  &:last-child {
+    justify-content: flex-end;
+  }
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 25px;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+
+  // The Orange Pill for Active State
+  &.active {
+    background-color: #ff8a4c; // The orange from your image
+    color: white;
+    font-weight: 700;
+  }
+
+  &:hover:not(.active) {
+    color: #ff8a4c;
+  }
+}
+
+.nav-logo {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+
+  .logo-box {
+    background-color: #ff8a4c;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+        width: 20px;
+    }
+  }
+}
+
+// Responsive: Stack or hide links on mobile
+@media (max-width: 768px) {
+  .nav-container {
+    height: auto;
+    padding: 10px;
+  }
+  .nav-link {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}

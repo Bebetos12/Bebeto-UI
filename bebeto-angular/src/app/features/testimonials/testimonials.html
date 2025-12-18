@@ -1,0 +1,67 @@
+<section id="testimonials" class="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <h2 class="section-title">Testimonials That<br>Speak to <span class="highlight">My Results</span></h2>
+      <p class="testimonials-subtitle">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue interdum ligula a dignissim. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis orci elementum egestas lobortis.
+      </p>
+    </div>
+
+    <div class="testimonials-slider">
+      <div class="sliding-track">
+        @for (item of testimonials(); track $index) {
+          <div class="testimonial-card">
+            <div class="card-top">
+              <div class="client-info">
+                <img [src]="item.avatar" [alt]="item.name" class="avatar">
+                <div class="details">
+                  <h4 class="name">{{ item.name }}</h4>
+                  <p class="role">{{ item.role }}</p>
+                </div>
+              </div>
+              <div class="quote-mark">
+                <i class="fa-solid fa-quote-right"></i>
+              </div>
+            </div>
+
+            <div class="rating-row">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-val">{{ item.rating.toFixed(1) }}</span>
+            </div>
+
+            <p class="testimonial-text">{{ item.text }}</p>
+          </div>
+        }
+        
+        @for (item of testimonials(); track 'dup-' + $index) {
+          <div class="testimonial-card">
+            <div class="card-top">
+              <div class="client-info">
+                <img [src]="item.avatar" [alt]="item.name" class="avatar">
+                <div class="details">
+                  <h4 class="name">{{ item.name }}</h4>
+                  <p class="role">{{ item.role }}</p>
+                </div>
+              </div>
+              <div class="quote-mark"><i class="fa-solid fa-quote-right"></i></div>
+            </div>
+            <div class="rating-row">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <span class="rating-val">{{ item.rating.toFixed(1) }}</span>
+            </div>
+            <p class="testimonial-text">{{ item.text }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

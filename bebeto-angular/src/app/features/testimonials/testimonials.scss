@@ -1,0 +1,88 @@
+.testimonials {
+  padding: 100px 0;
+  background: #0d0d0d; // Dark background matching image
+  overflow: hidden;
+
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 60px;
+  .section-title {
+    font-size: 48px; font-weight: 800; color: #fff;
+    .highlight { color: #ff8a4c; }
+  }
+  .testimonials-subtitle { color: #9ca3af; max-width: 700px; margin: 20px auto; }
+}
+
+/* Sliding Logic */
+.testimonials-slider {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.sliding-track {
+  display: flex;
+  gap: 30px;
+  animation: scrollLeft 40s linear infinite; // Speed control
+  
+  &:hover {
+    animation-play-state: paused; // Stop sliding when user hovers
+  }
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } // Loops perfectly if list is duplicated
+}
+
+.testimonial-card {
+  flex: 0 0 500px; // Each card is exactly 500px wide
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 40px;
+  position: relative;
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+  }
+
+  .client-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    .avatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+    .name { color: #fff; font-size: 22px; margin: 0; }
+    .role { color: #9ca3af; font-size: 14px; margin: 0; }
+  }
+
+  .quote-mark {
+    font-size: 60px;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
+  }
+
+  .rating-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    .fa-star { color: #ff8a4c; font-size: 16px; }
+    .rating-val { color: #fff; font-weight: 700; font-size: 20px; }
+  }
+
+  .testimonial-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+}

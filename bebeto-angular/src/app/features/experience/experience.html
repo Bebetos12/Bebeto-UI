@@ -1,0 +1,28 @@
+<!-- Experience Section -->
+<section id="experience" class="experience">
+  <div class="container">
+    <div class="section-header center-header">
+      <h2 class="section-title">My <span class="highlight">Work Experience</span></h2>
+    </div>
+    <div class="experience-timeline">
+      @for (exp of experiences; track exp.place; let last = $last) {
+        <div class="exp-item">
+          <div class="exp-left">
+            <h3 class="exp-place">{{ exp.place }}</h3>
+            <span class="exp-date">{{ exp.date }}</span>
+          </div>
+          <div class="exp-center">
+            <div class="exp-dot" [class]="exp.type == 'education' ? 'dark' : 'orange'"></div>
+            @if (!last) {
+              <div class="exp-line"></div>
+            }
+          </div>
+          <div class="exp-right">
+            <h3 class="exp-role">{{ exp.title }}</h3>
+            <p class="exp-desc">{{ exp.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

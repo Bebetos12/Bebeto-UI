@@ -1,0 +1,307 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Font Awesome is loaded via `angular.json` styles */
+
+/* Global CSS Variables */
+:root {
+  /* Primary Orange Colors */
+  --color-primary: #FD853A;
+  --color-orange-500: #FB6514;
+  --color-orange-400: #FD853A;
+  --color-orange-300: #FEB273;
+  --color-orange-100: #FFEAD5;
+  --color-orange-25: #FFFAF5;
+
+  /* Dark Colors */
+  --color-dark: #171717;
+  --color-gray-900: #171717;
+  --color-gray-800: #1D2939;
+  --color-gray-700: #344054;
+  --color-gray-600: #475467;
+  --color-footer: #272727;
+
+  /* Light Colors */
+  --color-white: #FFFFFF;
+  --color-gray-25: #FCFCFD;
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F2F4F7;
+  --color-gray-200: #E4E7EC;
+  --color-light: #F8F8F8;
+
+  /* Medium Grays */
+  --color-gray-400: #98A2B3;
+  --color-gray-500: #667085;
+
+  /* Text Colors */
+  --color-text: #344054;
+  --color-text-light: #98A2B3;
+
+  /* Typography */
+  --font-family: 'Lufga', sans-serif;
+  --font-urbanist: 'Urbanist', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+
+  /* Border Radius */
+  --radius-xs: 14px;
+  --radius-sm: 20px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+  --radius-xl: 50px;
+  --radius-2xl: 57px;
+  --radius-3xl: 60px;
+
+  /* Effects */
+  --blur-sm: blur(7px);
+  --blur-md: blur(7.5px);
+
+  /* Transitions */
+  --transition: all 0.3s ease;
+
+  /* Container */
+  --container-width: 1298px;
+}
+
+/* ============================================
+   GLOBAL RESPONSIVE DESIGN - ALL DEVICES
+   ============================================ */
+
+/* Ultra Wide Desktop - 1920px+ */
+@media (min-width: 1920px) {
+  :root {
+    --container-width: 1600px;
+  }
+
+  body {
+    font-size: 18px;
+  }
+
+  .container {
+    max-width: var(--container-width);
+    padding: 0 120px;
+  }
+}
+
+/* Large Desktop - 1440px+ */
+@media (min-width: 1440px) {
+  :root {
+    --container-width: 1400px;
+  }
+
+  body {
+    font-size: 17px;
+  }
+
+  .container {
+    max-width: var(--container-width);
+    padding: 0 100px;
+  }
+}
+
+/* Medium Desktop - 1200px to 1439px */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  :root {
+    --container-width: 1200px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: var(--container-width);
+    padding: 0 80px;
+  }
+}
+
+/* Desktop - 1024px to 1199px */
+@media (max-width: 1199px) {
+  :root {
+    --container-width: 1024px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: var(--container-width);
+    padding: 0 71px;
+  }
+}
+
+/* Tablet Landscape - 900px to 1023px */
+@media (max-width: 1023px) {
+  :root {
+    --container-width: 900px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 60px;
+  }
+}
+
+/* Tablet - 768px to 899px */
+@media (max-width: 899px) {
+  :root {
+    --container-width: 768px;
+  }
+
+  body {
+    font-size: 13px;
+  }
+
+  .container {
+    padding: 0 50px;
+  }
+}
+
+/* Small Tablet - 600px to 767px */
+@media (max-width: 767px) {
+  body {
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 0 30px;
+  }
+}
+
+/* Mobile Landscape - 480px to 599px */
+@media (max-width: 599px) {
+  body {
+    font-size: 11px;
+  }
+
+  .container {
+    padding: 0 25px;
+  }
+}
+
+/* Mobile - 360px to 479px */
+@media (max-width: 479px) {
+  body {
+    font-size: 10px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* Small Mobile - Under 360px */
+@media (max-width: 359px) {
+  body {
+    font-size: 9px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY & PREFERENCES
+   ============================================ */
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: #FF0000;
+    --color-dark: #000000;
+    --color-white: #FFFFFF;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  .hero,
+  .services,
+  .testimonials,
+  .cta {
+    background: white !important;
+    color: black !important;
+  }
+
+  .header,
+  .footer {
+    display: none !important;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-white);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 71px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}

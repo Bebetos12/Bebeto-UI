@@ -1,0 +1,43 @@
+<section id="services" class="services">
+  <div class="background-overlay"></div>
+
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">My <span class="highlight">Services</span></h2>
+      <p class="section-subtitle">
+        Insights, tips, and stories from my creative journey to help you elevate your design and development projects.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      @for (service of services; track service.title) {
+        <div class="service-card">
+          <div class="card-glass-header">
+            <h3 class="service-title">{{ service.title }}</h3>
+          </div>
+
+          <div class="card-visual-layer">
+            <div class="depth-stack"></div>
+            
+            <div class="beige-content">
+              <img [src]="service.image" [alt]="service.title" class="mockup-img">
+              
+              <div class="fab-anchor">
+                <a href="#" class="fab-circle">
+                  <i class="fa-solid fa-arrow-up"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="pagination">
+      <span class="pill active"></span>
+      <span class="pill"></span>
+      <span class="pill"></span>
+      <span class="pill"></span>
+    </div>
+  </div>
+</section>

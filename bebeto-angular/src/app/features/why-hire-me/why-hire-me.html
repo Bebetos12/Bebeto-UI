@@ -1,0 +1,27 @@
+<section id="why-hire-me" class="why-hire-me">
+  <div class="container why-container">
+    <div class="why-image-wrapper">
+      <div class="orange-shape"></div>
+      <img [src]="imagePath" alt="Why Hire Me" class="why-img">
+    </div>
+
+    <div class="why-content">
+      <h2 class="section-title">Why <span class="highlight">Hire me</span>?</h2>
+      
+      <p class="why-desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales
+      </p>
+
+      <div class="why-stats">
+        @for (stat of stats; track stat.label) {
+          <div class="stat-box">
+            <span class="stat-num">{{ stat.number }}</span>
+            <span class="stat-txt">{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+
+      <button class="btn-hire-me" (click)="hireMe()">Hire me</button>
+    </div>
+  </div>
+</section>

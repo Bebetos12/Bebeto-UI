@@ -1,0 +1,124 @@
+.portfolio {
+  padding: 80px 0;
+  background-color: #fff;
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+}
+
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+  
+  .section-title {
+    font-size: 44px; font-weight: 800; line-height: 1.1; color: #1a232e;
+    .highlight { color: #ff8a4c; }
+  }
+
+  .see-all-btn {
+    background: #ff8a4c; color: #fff; border: none;
+    padding: 14px 30px; border-radius: 50px; font-weight: 600;
+  }
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.portfolio-card {
+  position: relative;
+  height: 450px;
+  border-radius: 40px;
+  overflow: hidden;
+  cursor: pointer;
+
+  .image-wrapper { height: 100%; width: 100%; position: relative; }
+  .portfolio-img { width: 100%; height: 100%; object-fit: cover; }
+
+  .card-arrow {
+    position: absolute;
+    top: 25px; right: 25px;
+    width: 55px; height: 55px;
+    background: #ff8a4c;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    color: #fff; font-size: 18px;
+    border: 2px solid rgba(255,255,255,0.3);
+    z-index: 5;
+  }
+
+  /* The Sliding Glass Panel */
+  .glass-info-panel {
+    position: absolute;
+    bottom: 20px; left: 20px; right: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 30px;
+    
+    /* Reveal logic: Only show the top part (Title) initially */
+    height: 120px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    .info-title {
+      font-size: 52px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+      transition: transform 0.4s ease;
+    }
+
+    .info-desc {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+      margin-top: 20px;
+      opacity: 0; /* Hidden by default */
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  /* HOVER EFFECT: Card expands UP to show text */
+  &:hover {
+    .glass-info-panel {
+      height: 240px; /* Expands to show description */
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .info-desc {
+      opacity: 1;
+    }
+  }
+}
+
+/* Filter pills at the bottom */
+.filter-container {
+  display: flex; justify-content: center; gap: 12px; margin: 50px 0;
+  .filter-pill {
+    padding: 10px 24px; border-radius: 50px; border: none;
+    background: #f1f3f6; color: #4b5563; font-weight: 500; font-size: 14px;
+    cursor: pointer;
+    &:hover { background: #e5e7eb; }
+  }
+}
+
+.portfolio-footer {
+  text-align: center;
+  .footer-title {
+    font-size: 36px; font-weight: 800; color: #1a232e;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    .arrow-circle {
+      width: 45px; height: 45px; background: #ff8a4c; color: #fff;
+      border-radius: 50%; display: inline-flex; justify-content: center; align-items: center;
+      i { transform: rotate(-45deg); font-size: 16px; }
+    }
+  }
+  .footer-desc { max-width: 750px; margin: 15px auto; color: #6b7280; line-height: 1.6; font-size: 15px;}
+}

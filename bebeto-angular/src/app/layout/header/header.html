@@ -1,0 +1,23 @@
+<header class="header">
+  <nav class="nav-container">
+    <div class="nav-group">
+      <a href="#home" class="nav-link" [class.active]="activeSection === 'home'" (click)="scrollTo('home')">Home</a>
+      <a href="#about" class="nav-link" [class.active]="activeSection === 'about'" (click)="scrollTo('about')">About</a>
+      <a href="#services" class="nav-link" [class.active]="activeSection === 'services'" (click)="scrollTo('services')">Service</a>
+    </div>
+
+    <div class="nav-logo">
+      <a href="#" class="logo-link">
+        <div class="logo-box">
+          <img src="assets/logo-icon.png" alt="JC"> </div>
+        <span class="logo-text">JCREA</span>
+      </a>
+    </div>
+
+    <div class="nav-group">
+      <a href="#resume" class="nav-link" [class.active]="activeSection === 'resume'" (click)="scrollTo('resume')">Resume</a>
+      <a href="#portfolio" class="nav-link" [class.active]="activeSection === 'portfolio'" (click)="scrollTo('portfolio')">Project</a>
+      <a href="#contact" class="nav-link" [class.active]="activeSection === 'contact'" (click)="scrollTo('contact')">Contact</a>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,138 @@
+:host {
+  --primary-orange: #ff8a4c;
+  --beige-bg: #e6e0d8;
+  --dark-navy: #1a232e;
+}
+
+.services {
+  background-image: url('/Assets/background.png'); /* Dark wavy background */
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: #0b0b0b;
+  position: relative;
+  padding: 120px 0;
+  color: #fff;
+
+  .background-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+}
+
+.container { position: relative; z-index: 2; }
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  .highlight { color: var(--primary-orange); }
+}
+
+.section-subtitle {
+  max-width: 450px;
+  color: #aaa;
+  text-align: right;
+  line-height: 1.6;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  position: relative;
+  cursor: pointer;
+
+  .card-glass-header {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    padding: 40px 30px 110px;
+    transition: all 0.4s ease;
+
+    .service-title { font-size: 1.8rem; font-weight: 700; }
+  }
+
+  /* HOVER EFFECT: Turns Orange */
+  &:hover {
+    .card-glass-header { background: var(--primary-orange); border-color: var(--primary-orange); }
+    .fab-circle { background-color: var(--primary-orange); }
+  }
+}
+
+.card-visual-layer {
+  margin-top: -85px; /* Overlap */
+  padding: 0 15px;
+  position: relative;
+  z-index: 5;
+}
+
+.beige-content {
+  background-color: var(--beige-bg);
+  border-radius: 40px;
+  padding: 15px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+
+  .mockup-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 25px;
+    display: block;
+  }
+}
+
+/* Perfect FAB Integration */
+.fab-anchor {
+  position: absolute;
+  bottom: 0; right: 0;
+}
+
+.fab-circle {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 75px;
+  height: 75px;
+  background-color: var(--dark-navy);
+  border-radius: 50%;
+  border: 8px solid var(--beige-bg); /* This creates the integrated cutout look */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s ease;
+
+  i { transform: rotate(45deg); font-size: 1.5rem; } /* Diagonal arrow */
+}
+
+.depth-stack {
+  position: absolute;
+  top: -20px; left: 50%; transform: translateX(-50%);
+  width: 85%; height: 50px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 25px;
+  z-index: -1;
+}
+
+.pagination {
+  display: flex; justify-content: center; gap: 12px; margin-top: 60px;
+  .pill {
+    width: 12px; height: 12px; background: #333; border-radius: 50%;
+    &.active { width: 45px; border-radius: 20px; background: var(--primary-orange); }
+  }
+}

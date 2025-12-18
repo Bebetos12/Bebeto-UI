@@ -1,0 +1,44 @@
+<section id="portfolio" class="portfolio">
+  <div class="container">
+    <div class="portfolio-header">
+      <h2 class="section-title">Lets have a look at<br>my <span class="highlight">Portfolio</span></h2>
+      <button class="see-all-btn" (click)="seeAllProjects()">See All</button>
+    </div>
+
+    <div class="portfolio-grid">
+      @for (item of portfolioItems(); track item.id) {
+        <div class="portfolio-card">
+          <div class="image-wrapper">
+            <img [src]="item.image" [alt]="item.title" class="portfolio-img">
+            
+            <div class="card-arrow">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+            <div class="glass-info-panel">
+              <h3 class="info-title">{{ item.title }}</h3>
+              <p class="info-desc">{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="filter-container">
+      @for (cat of filterCategories; track cat) {
+        <button class="filter-pill">{{ cat }}</button>
+      }
+    </div>
+
+    <div class="portfolio-footer">
+      <h2 class="footer-title">
+        Lirante - Food Delivery Solution 
+        <span class="arrow-circle"><i class="fa-solid fa-arrow-up"></i></span>
+      </h2>
+      <p class="footer-desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue interdum ligula a dignissim. 
+        Sed lobortis orci elementum egestas lobortis.
+      </p>
+    </div>
+  </div>
+</section>

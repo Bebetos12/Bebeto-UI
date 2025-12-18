@@ -1,0 +1,143 @@
+.hero {
+  padding-top: 100px;
+  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', sans-serif; // Or your preferred sans-serif
+}
+
+.hero-container {
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.badge-wrapper {
+  position: relative;
+  margin-bottom: 10px;
+  .hello-badge {
+    border: 1px solid #000;
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-size: 18px;
+  }
+  .decor-top {
+    position: absolute;
+    right: -30px;
+    top: -10px;
+    width: 30px;
+  }
+}
+
+.hero-title {
+  font-size: 100px;
+  font-weight: 800;
+  line-height: 0.9;
+  color: #1a1a1a;
+  margin: 0;
+  z-index: 5;
+  .highlight { color: #ff8a4c; }
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  width: 100%;
+  align-items: flex-end;
+  margin-top: -30px; // Pulls content up to overlap title
+}
+
+/* Side Sections */
+.content-side {
+  padding-bottom: 120px;
+  
+  &.side-left {
+    text-align: left;
+    padding-left: 50px;
+    position: relative;
+    .quote-icon { font-size: 40px; font-weight: bold; color: #1a1a1a; display: block; }
+    .testimonial { font-size: 18px; color: #444; line-height: 1.4; max-width: 250px; }
+    .decor-left { position: absolute; left: -20px; bottom: 150px; width: 40px; }
+  }
+
+  &.side-right {
+    text-align: right;
+    padding-right: 50px;
+    .star-rating {
+      color: #ff8a4c;
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 3px;
+    }
+    .exp-num { display: block; font-size: 45px; font-weight: 800; color: #1a1a1a; line-height: 1; }
+    .exp-sub { font-size: 16px; color: #666; font-weight: 500; }
+  }
+}
+
+/* Center Image and Circle */
+.content-center {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  .orange-circle {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background-color: #ff8a4c;
+    border-radius: 50%;
+    bottom: -150px;
+    z-index: 1;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 500px;
+    z-index: 2;
+    filter: grayscale(100%); // Makes the person Black & White
+    position: relative;
+  }
+}
+
+/* Floating Glass Pill */
+.glass-pill {
+  position: absolute;
+  bottom: 40px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+  .pill-btn-orange {
+    background: #ff8a4c;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 100px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    .arrow { margin-left: 8px; font-size: 20px; }
+  }
+
+  .pill-btn-text {
+    color: white;
+    font-weight: 500;
+    padding-right: 25px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,32 @@
+<!-- First CTA Section -->
+<section class="cta">
+  <div class="container cta-container">
+    <h2 class="cta-title">Have an Awesome Project Idea? <span class="highlight">Let's Discuss</span></h2>
+    <form class="cta-form" (submit)="sendInvite()">
+      <div class="input-group">
+        <span class="email-icon">✉</span>
+        <input type="email"
+               placeholder="Enter Email Address"
+               class="cta-input"
+               [(ngModel)]="email"
+               name="email"
+               required>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+    </form>
+    <div class="cta-stats">
+      <div class="stat-item">
+        <span class="stat-icon">⭐</span>
+        <span class="stat-text">4.9/5 Average Ratings</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-icon">🏆</span>
+        <span class="stat-text">25+ Winning Awards</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-icon">✓</span>
+        <span class="stat-text">Certified Product Designer</span>
+      </div>
+    </div>
+  </div>
+</section>
