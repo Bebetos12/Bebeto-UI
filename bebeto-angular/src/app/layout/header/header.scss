@@ -6,7 +6,7 @@
   z-index: 1000;
   display: flex;
   justify-content: center;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .nav-container {
@@ -14,22 +14,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 15px;
+  padding: 10px 28px;
   border-radius: 100px; // Capsule shape
   width: 100%;
-  max-width: 900px; // Adjust based on your preference
-  height: 70px;
-}
+  max-width: 1400px; /* Match project container width */
+  height: 88px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+} 
 
 .nav-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
   flex: 1;
   
-  &:last-child {
-    justify-content: flex-end;
-  }
+  &:first-child { justify-content: flex-start; }
+  &:last-child { justify-content: flex-end; }
 }
 
 .nav-link {
@@ -37,7 +37,7 @@
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
-  padding: 12px 25px;
+  padding: 12px 30px;
   border-radius: 100px;
   transition: all 0.3s ease;
 
@@ -62,7 +62,7 @@
   .logo-link {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     text-decoration: none;
     color: white;
     font-weight: 800;
@@ -72,17 +72,25 @@
 
   .logo-box {
     background-color: #ff8a4c;
-    width: 35px;
-    height: 35px;
-    border-radius: 10px;
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     
     img {
-        width: 20px;
+      width: 40px;
+      height: auto;
+      display: block;
+      object-fit: contain;
     }
+
+    .logo-img { width: 40px; height: auto; }
   }
+
+  .logo-text { font-size: 20px; font-weight: 800; }
 }
 
 // Responsive: Stack or hide links on mobile

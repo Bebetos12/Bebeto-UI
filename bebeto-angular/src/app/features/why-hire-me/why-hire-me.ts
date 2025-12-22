@@ -12,8 +12,6 @@ export class WhyHireMeComponent {
     { number: '5+', label: 'Happy client' }
   ];
 
-  // Make sure this image is the portrait of the person with a transparent background
-  readonly imagePath = 'Assets/hire-me-portrait.png';
 
   hireMe() {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
