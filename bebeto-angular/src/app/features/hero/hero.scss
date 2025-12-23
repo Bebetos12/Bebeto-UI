@@ -1,7 +1,7 @@
 @use 'sass:map';
 
 .hero {
-  padding: 100px 0 0 0;
+  padding: 120px 0 0 0;
   background-color: var(--color-white);
   min-height: 100vh;
   display: flex;
@@ -58,7 +58,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: -40px;
+  margin-top: -250px;
   position: relative;
 
   .info-block {
@@ -85,7 +85,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  max-width: 600px;
+  max-width: 500px;
 
   .ellipse-bg {
     position: absolute;
@@ -97,7 +97,7 @@
   .portrait {
     position: relative;
     z-index: 2;
-    width: 70%;
+    width: 80%;
     filter: grayscale(100%);
     transition: filter 0.5s ease;
     &:hover { filter: grayscale(0%); }
@@ -105,6 +105,7 @@
 }
 
 /* Glassmorphism Buttons with Sliding Animation */
+/* Glassmorphism Buttons with Sliding Animation - CORRECTED */
 .glass-actions {
   position: absolute;
   bottom: 30px;
@@ -115,23 +116,29 @@
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 20px;
+  padding: 10px; 
   border-radius: 100px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   width: 400px;
+  height: 74px; // Added height to ensure consistency with padding
   overflow: hidden;
 
   .active-pill {
     position: absolute;
-    top: 8px;
-    left: px;
-    width: 150px;
-    height: calc(100% - 16px);
+    top: 50%;
+    left: 10px; 
+    transform: translateY(-50%);
+    width: 185px; // Calculated: (400px width - 20px total padding - 10px gap) / 2
+    height: 54px;
     background: var(--color-primary);
     border-radius: 100px;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: -1;
-    &.shift { transform: translateX(134px); }
+
+    &.shift { 
+      // This moves the pill exactly to the second button's position
+      left: 205px; 
+    }
   }
 
   .action-btn {
@@ -142,12 +149,14 @@
     padding: 12px 0;
     font-weight: 500;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
     font-family: var(--font-family);
+    position: relative;
+    z-index: 1;
   }
 }
 
