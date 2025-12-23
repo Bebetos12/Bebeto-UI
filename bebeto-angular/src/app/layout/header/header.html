@@ -1,24 +1,37 @@
 <header class="header">
-  <nav class="nav-container">
-    <div class="nav-group">
-      <a href="#home" class="nav-link" [class.active]="activeSection === 'home'" (click)="scrollTo('home')">Home</a>
-      <a href="#about" class="nav-link" [class.active]="activeSection === 'about'" (click)="scrollTo('about')">About</a>
-      <a href="#services" class="nav-link" [class.active]="activeSection === 'services'" (click)="scrollTo('services')">Service</a>
+  <nav class="nav-container" [class.menu-open]="isMenuOpen()">
+    
+    <button class="mobile-toggle" (click)="toggleMenu()" aria-label="Toggle Menu">
+      <i class="fa-solid" [class.fa-bars]="!isMenuOpen()" [class.fa-xmark]="isMenuOpen()"></i>
+    </button>
+
+    <div class="nav-links left-links" [class.show]="isMenuOpen()">
+      <a class="nav-item" [class.active]="activeSection() === 'home'" (click)="scrollTo('home')">Home</a>
+      <a class="nav-item" [class.active]="activeSection() === 'about'" (click)="scrollTo('about')">About</a>
+      <a class="nav-item" [class.active]="activeSection() === 'services'" (click)="scrollTo('services')">Service</a>
     </div>
 
     <div class="nav-logo">
-      <a href="#" class="logo-link" aria-label="Bebeto" title="Bebeto">
+      <div class="logo-wrapper">
         <div class="logo-box">
-          <img src="Assets/Bebeto-logo.png" alt="Bebeto logo" class="logo-img">
+          <img src="Assets/Bebeto-logo.png" alt="Logo" class="logo-img">
         </div>
-        <span class="logo-text">𝔅𝔢𝔟𝔢𝔱𝔬</span>
-      </a>
+        <div class="logo-text-container">
+          <span class="logo-text default">𝔅𝔢𝔟𝔢𝔱𝔬</span>
+          
+          <div class="logo-text name-reveal">
+            <span class="name-top">NIYERA</span>
+            <span class="name-bottom">Néré Brunel</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="nav-group">
-      <a href="#resume" class="nav-link" [class.active]="activeSection === 'resume'" (click)="scrollTo('resume')">Resume</a>
-      <a href="#portfolio" class="nav-link" [class.active]="activeSection === 'portfolio'" (click)="scrollTo('portfolio')">Project</a>
-      <a href="#contact" class="nav-link" [class.active]="activeSection === 'contact'" (click)="scrollTo('contact')">Contact</a>
+    <div class="nav-links right-links" [class.show]="isMenuOpen()">
+      <a class="nav-item" [class.active]="activeSection() === 'resume'" (click)="scrollTo('resume')">Resume</a>
+      <a class="nav-item" [class.active]="activeSection() === 'portfolio'" (click)="scrollTo('portfolio')">Project</a>
+      <a class="nav-item" [class.active]="activeSection() === 'contact'" (click)="scrollTo('contact')">Contact</a>
     </div>
+
   </nav>
 </header>

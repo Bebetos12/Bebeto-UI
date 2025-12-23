@@ -1,51 +1,41 @@
-<section id="home" class="hero">
-  <div class="hero-container">
+<section class="hero">
+  <div class="container hero-layout">
     
-    <div class="badge-wrapper">
-      <div class="hello-badge">Hello!</div>
-      <img src="assets/orange-lines-top.svg" class="decor decor-top" alt="">
+    <div class="hero-header">
+      <div class="badge-container">
+        <span class="hello-badge">Hello!</span>
+      </div>
+      <h1 class="main-title">
+        I’m <span class="highlight">Bebetos</span>,<br>
+        Product Designer
+      </h1>
     </div>
 
-    <h1 class="hero-title">
-      I'm <span class="highlight">Bebetos</span>,<br>
-      Product Designer
-    </h1>
-
-    <div class="hero-content">
-      <div class="content-side side-left">
-        <span class="quote-icon">“</span>
-        <p class="testimonial">
-          Jenny’s Exceptional product design ensure our website’s success.<br>
-          <strong>Highly Recommended</strong>
-        </p>
-        <img src="assets/orange-lines-left.svg" class="decor decor-left" alt="">
+    <div class="hero-grid">
+      
+      <div class="hero-side left">
+        <i class="fa-solid fa-quote-left quote"></i>
+        <p>Jenny’s Exceptional product design ensure our website’s success. Highly Recommended</p>
       </div>
 
-      <div class="content-center">
-        <div class="orange-circle"></div>
-        <img src="Assets/hero image 2.png" alt="Bebetos" class="hero-image">
+      <div class="hero-visual">
+        <div class="semi-circle"></div>
+        <img src="assets/me.png" alt="Bebetos" class="portrait">
         
-        <div class="glass-pill">
-          <a (click)="viewPortfolio()" class="pill-btn-orange">
-            Portfolio <span class="arrow">↗</span>
-          </a>
-          <a (click)="contactMe()" class="pill-btn-text">Hire me</a>
+        <div class="floating-actions">
+          <button class="btn-portfolio">Portfolio <i class="fa-solid fa-arrow-up-right"></i></button>
+          <button class="btn-hire">Hire me</button>
         </div>
       </div>
 
-      <div class="content-side side-right">
-        <div class="star-rating">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
+      <div class="hero-side right">
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
         </div>
-        <div class="experience-box">
-          <span class="exp-num">4 Years</span>
-          <span class="exp-sub">Experince</span>
-        </div>
+        <h2 class="exp-val">4 Years</h2>
+        <p class="exp-label">Experience</p>
       </div>
+
     </div>
   </div>
 </section>
