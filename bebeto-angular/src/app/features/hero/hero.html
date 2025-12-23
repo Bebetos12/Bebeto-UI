@@ -3,34 +3,47 @@
     
     <div class="hero-header">
       <div class="badge-container">
-        <span class="hello-badge">Hello!</span>
+        <span class="hello-badge">
+          Hello!
+          <img src="Assets/vectors/Vector 1.png" alt="" class="vector-hello">
+        </span>
       </div>
       <h1 class="main-title">
-        I’m <span class="highlight">Bebetos</span>,<br>
-        Product Designer
+        I’m <span class="highlight">Bebetos</span>,
+        <div class="product-line">
+          Product Designer
+          <img src="Assets/vectors/Vector 2.png" alt="" class="vector-product">
+        </div>
       </h1>
     </div>
 
-    <div class="hero-grid">
+    <div class="hero-content">
       
-      <div class="hero-side left">
+      <div class="info-block left">
         <i class="fa-solid fa-quote-left quote"></i>
-        <p>Jenny’s Exceptional product design ensure our website’s success. Highly Recommended</p>
+        <p>Bebeto's exceptional product design ensures our website’s success. Highly Recommended</p>
       </div>
 
       <div class="hero-visual">
-        <div class="semi-circle"></div>
-        <img src="assets/me.png" alt="Bebetos" class="portrait">
+        <img src="Assets/vectors/Elipse.png" alt="" class="ellipse-bg">
+        <img src="Assets/hero image 2.png" alt="Bebetos" class="portrait">
         
-        <div class="floating-actions">
-          <button class="btn-portfolio">Portfolio <i class="fa-solid fa-arrow-up-right"></i></button>
-          <button class="btn-hire">Hire me</button>
+        <div class="glass-actions">
+          <div class="active-pill" [class.shift]="hoverHire"></div>
+          <button class="action-btn" (mouseenter)="hoverHire = false">
+            Portfolio <i class="fa-solid fa-arrow-up-right"></i>
+          </button>
+          <button class="action-btn" (mouseenter)="hoverHire = true">
+            Hire me
+          </button>
         </div>
       </div>
 
-      <div class="hero-side right">
+      <div class="info-block right">
         <div class="stars">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          @for (star of [1,2,3,4,5]; track $index) {
+            <i class="fa-solid fa-star"></i>
+          }
         </div>
         <h2 class="exp-val">4 Years</h2>
         <p class="exp-label">Experience</p>
