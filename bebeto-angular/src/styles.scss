@@ -1,6 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================================
+   GLOBAL RESET & OVERFLOW FIX
+   ============================================ */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* This is the most important line to fix the "cut" effect on Android */
+  overflow-x: hidden; 
+  position: relative;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-/* Font Awesome is loaded via `angular.json` styles */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 /* Global CSS Variables */
 :root {
@@ -50,224 +65,57 @@
   --radius-2xl: 57px;
   --radius-3xl: 60px;
 
-  /* Effects */
-  --blur-sm: blur(7px);
-  --blur-md: blur(7.5px);
-
   /* Transitions */
   --transition: all 0.3s ease;
 
-  /* Container */
-  --container-width: 1298px;
+  /* Container - Changed to a fluid max-width */
+  --container-max-width: 1250px;
 }
 
 /* ============================================
-   GLOBAL RESPONSIVE DESIGN - ALL DEVICES
+   FLUID RESPONSIVE CONTAINER
    ============================================ */
 
-/* Ultra Wide Desktop - 1920px+ */
-@media (min-width: 1920px) {
-  :root {
-    --container-width: 1600px;
-  }
+.container {
+  width: 90%;             /* Default for mobile - 5% gap on each side */
+  max-width: var(--container-max-width);
+  margin: 0 auto;         /* Centers the container */
+  padding: 0;             /* Removed the 71px fixed padding */
+}
 
-  body {
-    font-size: 18px;
-  }
-
+/* For larger tablets and desktops, we can make the container slightly tighter */
+@media (min-width: 1024px) {
   .container {
-    max-width: var(--container-width);
-    padding: 0 120px;
+    width: 85%;
   }
 }
 
-/* Large Desktop - 1440px+ */
+/* For very large screens */
 @media (min-width: 1440px) {
-  :root {
-    --container-width: 1400px;
-  }
-
-  body {
-    font-size: 17px;
-  }
-
   .container {
-    max-width: var(--container-width);
-    padding: 0 100px;
-  }
-}
-
-/* Medium Desktop - 1200px to 1439px */
-@media (min-width: 1200px) and (max-width: 1439px) {
-  :root {
-    --container-width: 1200px;
-  }
-
-  body {
-    font-size: 16px;
-  }
-
-  .container {
-    max-width: var(--container-width);
-    padding: 0 80px;
-  }
-}
-
-/* Desktop - 1024px to 1199px */
-@media (max-width: 1199px) {
-  :root {
-    --container-width: 1024px;
-  }
-
-  body {
-    font-size: 15px;
-  }
-
-  .container {
-    max-width: var(--container-width);
-    padding: 0 71px;
-  }
-}
-
-/* Tablet Landscape - 900px to 1023px */
-@media (max-width: 1023px) {
-  :root {
-    --container-width: 900px;
-  }
-
-  body {
-    font-size: 14px;
-  }
-
-  .container {
-    padding: 0 60px;
-  }
-}
-
-/* Tablet - 768px to 899px */
-@media (max-width: 899px) {
-  :root {
-    --container-width: 768px;
-  }
-
-  body {
-    font-size: 13px;
-  }
-
-  .container {
-    padding: 0 50px;
-  }
-}
-
-/* Small Tablet - 600px to 767px */
-@media (max-width: 767px) {
-  body {
-    font-size: 12px;
-  }
-
-  .container {
-    padding: 0 30px;
-  }
-}
-
-/* Mobile Landscape - 480px to 599px */
-@media (max-width: 599px) {
-  body {
-    font-size: 11px;
-  }
-
-  .container {
-    padding: 0 25px;
-  }
-}
-
-/* Mobile - 360px to 479px */
-@media (max-width: 479px) {
-  body {
-    font-size: 10px;
-  }
-
-  .container {
-    padding: 0 20px;
-  }
-}
-
-/* Small Mobile - Under 360px */
-@media (max-width: 359px) {
-  body {
-    font-size: 9px;
-  }
-
-  .container {
-    padding: 0 15px;
+    width: 100%; /* max-width 1250px will handle the rest */
   }
 }
 
 /* ============================================
-   ACCESSIBILITY & PREFERENCES
+   GLOBAL ELEMENT STYLES
    ============================================ */
-
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-  :root {
-    --color-primary: #FF0000;
-    --color-dark: #000000;
-    --color-white: #FFFFFF;
-  }
-}
-
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Print Styles */
-@media print {
-  * {
-    background: transparent !important;
-    color: black !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  .hero,
-  .services,
-  .testimonials,
-  .cta {
-    background: white !important;
-    color: black !important;
-  }
-
-  .header,
-  .footer {
-    display: none !important;
-  }
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
   font-family: var(--font-family);
   background-color: var(--color-white);
   color: var(--color-text);
   line-height: 1.6;
-  overflow-x: hidden;
+  font-size: 16px;
+}
+
+/* Responsive font scaling */
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 13px; }
 }
 
 a {
@@ -278,30 +126,52 @@ a {
 
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 img {
+  /* Critical for mobile: keeps images from pushing the screen sideways */
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
-.container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 71px;
-}
+/* ============================================
+   BUTTONS
+   ============================================ */
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 30px;
-  border-radius: 50px;
-  font-weight: 500;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
   border: none;
+  white-space: nowrap;
 }
 
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-white);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(253, 133, 58, 0.2);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

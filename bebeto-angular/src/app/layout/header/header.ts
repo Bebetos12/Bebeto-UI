@@ -1,4 +1,4 @@
-import { Component, signal, OnInit, OnDestroy } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,57 +6,41 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './header.html',
-  styleUrl: './header.scss'
+  styleUrls: ['./header.scss']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit {
   activeSection = signal('home');
   isMenuOpen = signal(false);
 
-  private observer: IntersectionObserver | null = null;
-
   ngOnInit() {
-    this.initScrollObserver();
-  }
-
-  ngOnDestroy() {
-    if (this.observer) this.observer.disconnect();
-  }
-
-  private initScrollObserver() {
-    const options = {
-      root: null,
-      rootMargin: '-50% 0px -50% 0px', // More precise: triggers when section is exactly in the middle
-      threshold: 0
-    };
-
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.activeSection.set(entry.target.id);
-        }
-      });
-    }, options);
-
-    ['home', 'about', 'services', 'resume', 'portfolio', 'contact'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) this.observer?.observe(el);
-    });
+    this.observeSections();
   }
 
   toggleMenu() {
     this.isMenuOpen.update(v => !v);
   }
 
-  scrollTo(sectionId: string) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      this.isMenuOpen.set(false); // Close menu on mobile
-      
-      const yOffset = -100; // Account for the sticky header height
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  scrollTo(id: string) {
+    const el = document.getElementById(id);
+    if (el) {
+      this.isMenuOpen.set(false);
+      const offset = 100;
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top: y, behavior: 'smooth' });
-      
-      this.activeSection.set(sectionId);
     }
+  }
+
+  private observeSections() {
+    const options = { threshold: 0.5 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) this.activeSection.set(entry.target.id);
+      });
+    }, options);
+
+    ['home', 'about', 'services', 'resume', 'portfolio', 'contact'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
   }
 }

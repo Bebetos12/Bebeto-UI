@@ -1,24 +1,19 @@
 <header class="header">
-  <nav class="nav-container" [class.menu-open]="isMenuOpen()">
+  <nav class="nav-container">
     
-    <button class="mobile-toggle" (click)="toggleMenu()" aria-label="Toggle Menu">
-      <i class="fa-solid" [class.fa-bars]="!isMenuOpen()" [class.fa-xmark]="isMenuOpen()"></i>
-    </button>
-
-    <div class="nav-links left-links" [class.show]="isMenuOpen()">
+    <div class="nav-links desktop-only-left">
       <a class="nav-item" [class.active]="activeSection() === 'home'" (click)="scrollTo('home')">Home</a>
       <a class="nav-item" [class.active]="activeSection() === 'about'" (click)="scrollTo('about')">About</a>
       <a class="nav-item" [class.active]="activeSection() === 'services'" (click)="scrollTo('services')">Service</a>
     </div>
 
-    <div class="nav-logo">
+    <div class="nav-logo" (click)="scrollTo('home')">
       <div class="logo-wrapper">
         <div class="logo-box">
           <img src="Assets/Bebeto-logo.png" alt="Logo" class="logo-img">
         </div>
         <div class="logo-text-container">
           <span class="logo-text default">𝔅𝔢𝔟𝔢𝔱𝔬</span>
-          
           <div class="logo-text name-reveal">
             <span class="name-top">NIYERA</span>
             <span class="name-bottom">Néré Brunel</span>
@@ -27,10 +22,23 @@
       </div>
     </div>
 
-    <div class="nav-links right-links" [class.show]="isMenuOpen()">
+    <div class="nav-links desktop-only-right">
       <a class="nav-item" [class.active]="activeSection() === 'resume'" (click)="scrollTo('resume')">Resume</a>
       <a class="nav-item" [class.active]="activeSection() === 'portfolio'" (click)="scrollTo('portfolio')">Project</a>
       <a class="nav-item" [class.active]="activeSection() === 'contact'" (click)="scrollTo('contact')">Contact</a>
+    </div>
+
+    <button class="mobile-toggle" (click)="toggleMenu()" aria-label="Menu">
+      <i class="fa-solid" [class.fa-bars]="!isMenuOpen()" [class.fa-xmark]="isMenuOpen()"></i>
+    </button>
+
+    <div class="mobile-menu" [class.open]="isMenuOpen()">
+      <a class="nav-item" (click)="scrollTo('home')">Home</a>
+      <a class="nav-item" (click)="scrollTo('about')">About</a>
+      <a class="nav-item" (click)="scrollTo('services')">Service</a>
+      <a class="nav-item" (click)="scrollTo('resume')">Resume</a>
+      <a class="nav-item" (click)="scrollTo('portfolio')">Project</a>
+      <a class="nav-item" (click)="scrollTo('contact')">Contact</a>
     </div>
 
   </nav>

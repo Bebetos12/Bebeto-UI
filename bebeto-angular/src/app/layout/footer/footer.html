@@ -1,67 +1,81 @@
-<footer class="footer">
-  <div class="container footer-container">
+<footer class="footer" id="footer">
+  <div class="footer-inner-container">
+    
     <div class="footer-top">
-      <h2 class="footer-title">Lets Connect there</h2>
+      <h2 class="footer-title">Let's Connect there</h2>
       <button class="btn-hire-footer" (click)="hireMe()">
         Hire me <i class="fa-solid fa-arrow-up-right"></i>
       </button>
     </div>
 
-    <div class="footer-content">
+    <div class="footer-grid">
+      
       <div class="footer-col brand-col">
-        <div class="footer-logo">
-          <div class="logo-box">
-            <img src="Assets/Bebeto-logo.png" alt="Bebeto logo" class="logo-img">
+        <div class="footer-logo" (click)="scrollToTop()">
+          <div class="logo-wrapper">
+            <div class="logo-box">
+              <img src="Assets/Bebeto-logo.png" alt="Logo" class="logo-img">
+            </div>
+            <div class="logo-text-container">
+              <span class="logo-text default">𝔅𝔢𝔟𝔢𝔱𝔬</span>
+              <div class="logo-text name-reveal">
+                <span class="name-top">NIYERA</span>
+                <span class="name-bottom">Néré Brunel</span>
+              </div>
+            </div>
           </div>
-          <span class="logo-text">𝔅𝔢𝔟𝔢𝔱𝔬</span>
         </div>
+        
         <p class="footer-desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue interdum ligula a dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis orci elementum egestas lobortis.
+          I am a dedicated UI/UX Designer and Web Developer passionate about creating intuitive digital experiences. 
+          By blending aesthetic design with functional code, I help brands build meaningful connections with their users.
         </p>
+
         <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://www.facebook.com/niyera.nereslay" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://wa.me/qr/BEDTR6S6PQSQD1" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/utbrunel/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://x.com/MeziMorel?s-=09" target="_blank" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://github.com/mezimorel" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/brunel-bebeto-5150ba358" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
 
       <div class="footer-col">
         <h4 class="col-title">Navigation</h4>
         <ul class="footer-list">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Service</a></li>
-          <li><a href="#">Resume</a></li>
-          <li><a href="#">Project</a></li>
+          <li><a (click)="scrollToTop()">Home</a></li>
+          <li><a (click)="scrollTo('about')">About Us</a></li>
+          <li><a (click)="scrollTo('services')">Service</a></li>
+          <li><a (click)="scrollTo('resume')">Resume</a></li>
+          <li><a (click)="scrollTo('portfolio')">Project</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4 class="col-title">Contact</h4>
         <ul class="footer-list">
-          <li class="contact-item">+257 76 197 888</li>
-          <li class="contact-item">mezimorel12@gmail.com</li>
-          <li class="contact-item">Niyera Néré Brunel</li>
+          <li class="contact-item"><i class="fa-solid fa-phone"></i> +257 76 197 888</li>
+          <li class="contact-item"><i class="fa-solid fa-envelope"></i> mezimorel12@gmail.com</li>
+          <li class="contact-item"><i class="fa-solid fa-location-dot"></i> Bujumbura, Burundi</li>
         </ul>
       </div>
 
-      <div class="footer-col newsletter-col">
+      <div class="footer-col">
         <h4 class="col-title">Get the latest information</h4>
-        <div class="email-input-wrapper">
+        <div class="newsletter-wrapper">
           <input type="email" placeholder="Email Address">
-          <button class="send-btn">
-            <i class="fa-solid fa-paper-plane"></i>
-          </button>
+          <button class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p class="copyright">Copyright© 2025 Bebeto. All Rights Reserved.</p>
-      <div class="footer-policy">
-        <a href="#">User Terms & Conditions</a> | <a href="#">Privacy Policy</a>
+      <p>Copyright© 2025 Bebeto. All Rights Reserved.</p>
+      <div class="policy-links">
+        <a href="#">User Terms & Conditions</a>
+        <span class="sep">|</span>
+        <a href="#">Privacy Policy</a>
       </div>
     </div>
   </div>

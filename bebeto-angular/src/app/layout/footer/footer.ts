@@ -7,10 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.scss']
 })
 export class FooterComponent {
-  hireMe() {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  scrollTo(id: string) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  hireMe() {
+    this.scrollTo('contact');
   }
 }
