@@ -1,138 +1,160 @@
 :host {
   --primary-orange: #ff8a4c;
-  --beige-bg: #e6e0d8;
-  --dark-navy: #1a232e;
+  --dark-text: #1a232e;
+  --bg-white: #ffffff;
 }
 
-.services {
-  background-image: url('/Assets/background.png'); /* Dark wavy background */
-  background-size: 100% auto;
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-color: #0b0b0b;
-  position: relative;
-  padding: 120px 0;
-  color: #fff;
+.blog {
+  padding: 80px 0;
+  background: var(--bg-white);
 
-  .background-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 1;
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
 }
 
-.container { position: relative; z-index: 2; }
-
-.section-header {
+.blog-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 80px;
-}
-
-.section-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  .highlight { color: var(--primary-orange); }
-}
-
-.section-subtitle {
-  max-width: 450px;
-  color: #aaa;
-  text-align: right;
-  line-height: 1.6;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.service-card {
-  position: relative;
-  cursor: pointer;
-
-  .card-glass-header {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 40px;
-    padding: 40px 30px 110px;
-    transition: all 0.4s ease;
-
-    .service-title { font-size: 1.8rem; font-weight: 700; }
-  }
-
-  /* HOVER EFFECT: Turns Orange */
-  &:hover {
-    .card-glass-header { background: var(--primary-orange); border-color: var(--primary-orange); }
-    .fab-circle { background-color: var(--primary-orange); }
-  }
-}
-
-.card-visual-layer {
-  margin-top: -85px; /* Overlap */
-  padding: 0 15px;
-  position: relative;
-  z-index: 5;
-}
-
-.beige-content {
-  background-color: var(--beige-bg);
-  border-radius: 40px;
-  padding: 15px;
-  position: relative;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-
-  .mockup-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 25px;
-    display: block;
-  }
-}
-
-/* Perfect FAB Integration */
-.fab-anchor {
-  position: absolute;
-  bottom: 0; right: 0;
-}
-
-.fab-circle {
-  position: absolute;
-  bottom: -10px;
-  right: -10px;
-  width: 75px;
-  height: 75px;
-  background-color: var(--dark-navy);
-  border-radius: 50%;
-  border: 8px solid var(--beige-bg); /* This creates the integrated cutout look */
-  display: flex;
-  justify-content: center;
   align-items: center;
-  color: white;
-  text-decoration: none;
-  transition: 0.3s ease;
+  margin-bottom: 50px;
 
-  i { transform: rotate(45deg); font-size: 1.5rem; } /* Diagonal arrow */
+  .section-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--dark-text);
+    line-height: 1.1;
+  }
+
+  .btn-see-all {
+    background: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+  }
 }
 
-.depth-stack {
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 colonnes comme sur l'image
+  gap: 30px;
+
+  @media (max-width: 992px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 600px) { grid-template-columns: 1fr; }
+}
+
+.blog-card {
+  .blog-img-wrapper {
+    position: relative;
+    border-radius: 40px; // Très arrondi comme sur l'image
+    overflow: visible; // Nécessaire pour l'encoche
+    margin-bottom: 25px;
+
+    .blog-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 40px;
+      display: block;
+    }
+  }
+}
+
+/* --- DESIGN DE L'ENCOCHE (CUTOUT) --- */
+.cutout-container {
   position: absolute;
-  top: -20px; left: 50%; transform: translateX(-50%);
-  width: 85%; height: 50px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 25px;
-  z-index: -1;
+  bottom: -5px;
+  right: -5px;
+  width: 90px;
+  height: 90px;
+  background: var(--bg-white);
+  border-radius: 50% 0 40px 0; // Forme de base
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Courbes inversées pour l'effet "moulé"
+  .cutout-curve-top, .cutout-curve-left {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+  }
+
+  .cutout-curve-top {
+    top: -20px; right: 5px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 0 0 var(--bg-white);
+  }
+
+  .cutout-curve-left {
+    left: -20px; bottom: 5px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 0 0 var(--bg-white);
+  }
+
+  .circle-arrow {
+    width: 70px;
+    height: 70px;
+    background: var(--dark-text);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover { background: var(--primary-orange); }
+  }
 }
 
-.pagination {
-  display: flex; justify-content: center; gap: 12px; margin-top: 60px;
-  .pill {
-    width: 12px; height: 12px; background: #333; border-radius: 50%;
-    &.active { width: 45px; border-radius: 20px; background: var(--primary-orange); }
+.blog-content {
+  .blog-tag {
+    background: #f1f5f9;
+    color: #1e293b;
+    padding: 6px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  .blog-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .dot {
+        width: 6px;
+        height: 6px;
+        background: var(--primary-orange);
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .blog-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark-text);
+    line-height: 1.4;
+    margin: 0;
   }
 }

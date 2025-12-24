@@ -2,29 +2,30 @@
   <div class="container">
     <div class="blog-header">
       <h2 class="section-title">From my <br> blog post</h2>
-      <button class="btn-see-all" (click)="seeAllPosts()">See All</button>
+      <button class="btn-see-all">See All</button>
     </div>
 
     <div class="blog-grid">
       @for (post of posts; track post.title) {
         <div class="blog-card">
-          <div class="blog-img-container">
+          <div class="blog-img-wrapper">
             <img [src]="post.image" [alt]="post.title" class="blog-img">
-            <div class="arrow-wrapper">
+            
+            <div class="cutout-container">
+              <div class="cutout-curve-top"></div>
+              <div class="cutout-curve-left"></div>
               <a href="#" class="circle-arrow">
-                <i class="fa-solid fa-arrow-up"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </a>
             </div>
           </div>
 
           <div class="blog-content">
-            <div class="tag-row">
-              <span class="blog-tag">{{ post.category }}</span>
-            </div>
+            <span class="blog-tag">{{ post.category }}</span>
             
             <div class="blog-meta">
-              <span class="meta-item author">{{ post.author }}</span>
-              <span class="meta-item date">{{ post.date }}</span>
+              <span class="meta-item"><span class="dot"></span>{{ post.author }}</span>
+              <span class="meta-item"><span class="dot"></span>{{ post.date }}</span>
             </div>
             
             <h3 class="blog-title">{{ post.title }}</h3>
