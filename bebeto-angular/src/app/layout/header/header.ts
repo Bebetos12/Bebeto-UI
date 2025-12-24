@@ -21,7 +21,11 @@ export class HeaderComponent implements OnInit {
   }
 
   scrollTo(id: string) {
-    const el = document.getElementById(id);
+    let targetId = id;
+    if (id === 'about') targetId = 'experience';
+    if (id === 'resume') targetId = 'why-hire-me';
+    // contact stays as contact
+    const el = document.getElementById(targetId);
     if (el) {
       this.isMenuOpen.set(false);
       const offset = 100;
@@ -38,7 +42,7 @@ export class HeaderComponent implements OnInit {
       });
     }, options);
 
-    ['home', 'about', 'services', 'resume', 'portfolio', 'contact'].forEach(id => {
+    ['home', 'experience', 'services', 'why-hire-me', 'portfolio', 'contact', 'footer'].forEach(id => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });

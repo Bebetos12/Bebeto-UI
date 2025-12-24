@@ -319,8 +319,23 @@ section.blog {
 }
 
 /* ============================================
-   ACCESSIBILITY
-   ============================================ */
+    SCROLL ANIMATIONS
+    ============================================ */
+
+.fade-in {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================
+    ACCESSIBILITY
+    ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -328,5 +343,10 @@ section.blog {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
