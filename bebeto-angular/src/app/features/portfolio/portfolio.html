@@ -1,44 +1,66 @@
-<section id="portfolio" class="portfolio">
+<section class="portfolio" id="portfolio">
   <div class="container">
     <div class="portfolio-header">
-      <h2 class="section-title">Lets have a look at<br>my <span class="highlight">Portfolio</span></h2>
-      <button class="see-all-btn" (click)="seeAllProjects()">See All</button>
+      <div class="header-content">
+        <h2 class="section-title">Let’s have a look at my <span class="highlight">Portfolio</span></h2>
+      </div>
+      <button class="see-all-btn" (click)="toggleSeeAll()">
+        {{ showAll() ? 'See Less' : 'See All' }}
+      </button>
     </div>
 
+    <!-- Project Grid -->
     <div class="portfolio-grid">
-      @for (item of portfolioItems(); track item.id) {
-        <div class="portfolio-card">
-          <div class="image-wrapper">
-            <img [src]="item.image" [alt]="item.title" class="portfolio-img">
-            
-            <div class="card-arrow">
-              <i class="fa-solid fa-arrow-right"></i>
+      @for (project of visibleProjects; track project.id) {
+        <div class="portfolio-card" (click)="openProject(project)">
+          <div class="card-image-wrapper">
+            <img [src]="project.image" [alt]="project.title" class="project-img">
+            <div class="overlay">
+              <span class="view-text">View Project</span>
             </div>
-
-            <div class="glass-info-panel">
-              <h3 class="info-title">{{ item.title }}</h3>
-              <p class="info-desc">{{ item.description }}</p>
-            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <span class="project-category">{{ project.category }}</span>
+          </div>
+          <div class="card-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
           </div>
         </div>
       }
     </div>
-
-    <div class="filter-container">
-      @for (cat of filterCategories; track cat) {
-        <button class="filter-pill">{{ cat }}</button>
-      }
-    </div>
-
-    <div class="portfolio-footer">
-      <h2 class="footer-title">
-        Lirante - Food Delivery Solution 
-        <span class="arrow-circle"><i class="fa-solid fa-arrow-up"></i></span>
-      </h2>
-      <p class="footer-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue interdum ligula a dignissim. 
-        Sed lobortis orci elementum egestas lobortis.
-      </p>
-    </div>
   </div>
+
+  <!-- Project Modal -->
+  @if (selectedProject()) {
+    <div class="modal-overlay" (click)="closeProject()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="closeProject()">
+          <i class="fa-solid fa-times"></i>
+        </button>
+        
+        <div class="modal-body">
+          <div class="modal-image-col">
+            <img [src]="selectedProject()?.image" [alt]="selectedProject()?.title" class="modal-img">
+          </div>
+          
+          <div class="modal-info-col">
+            <div class="brand-header">
+              <img src="/Assets/Bebeto-logo.png" alt="Bebeto Logo" class="brand-logo">
+              <span class="brand-name">Bebeto</span>
+            </div>
+            
+            <h3 class="modal-title">{{ selectedProject()?.title }}</h3>
+            <span class="modal-category">{{ selectedProject()?.category }}</span>
+            
+            <p class="modal-desc">{{ selectedProject()?.description }}</p>
+            
+            <a [href]="selectedProject()?.link" target="_blank" class="project-link-btn">
+              View Project <i class="fa-solid fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
 </section>

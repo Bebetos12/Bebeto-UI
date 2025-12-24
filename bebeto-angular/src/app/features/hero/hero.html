@@ -1,52 +1,61 @@
-<section class="hero">
-  <div class="container hero-layout">
+<section class="hero" id="home">
+  <div class="container">
     
+    <!-- Header: Hello & Title -->
     <div class="hero-header">
-      <div class="badge-container">
-        <span class="hello-badge">
-          Hello!
-          <img src="Assets/vectors/Vector 1.png" alt="" class="vector-hello">
-        </span>
+      <div class="hello-badge">
+        Hello!
+        <img src="/Assets/vectors/Vector 1.png" alt="" class="vector-hello">
       </div>
       <h1 class="main-title">
-        I’m <span class="highlight">Bebetos</span>,
-        <div class="product-line">
-          Product Designer
-          <img src="Assets/vectors/Vector 2.png" alt="" class="vector-product">
-        </div>
+        I’m <span class="highlight">Bebetos</span>, <br>
+        <span class="product-line">
+          {{ displayText }}<span class="cursor">|</span>
+          <img src="/Assets/vectors/Vector 2.png" alt="" class="vector-product">
+        </span>
       </h1>
     </div>
 
+    <!-- Main Content Grid -->
     <div class="hero-content">
       
+      <!-- Left Info: Quote -->
       <div class="info-block left">
-        <i class="fa-solid fa-quote-left quote"></i>
-        <p>Bebeto's exceptional product design ensures our website’s success. Highly Recommended</p>
+        <span class="quote">❝</span>
+        <p><span class="highlight-text">Bebeto’s</span> Exceptional product design ensure our website’s success. Highly Recommended</p>
       </div>
 
+      <!-- Center Visual: Image & Background -->
       <div class="hero-visual">
-        <img src="Assets/vectors/Elipse.png" alt="" class="ellipse-bg">
-        <img src="Assets/hero image 2.png" alt="Bebetos" class="portrait">
+        <div class="ellipse-bg">
+          <img src="/Assets/vectors/Elipse.png" alt="Background Shape">
+        </div>
+        <img src="/Assets/hero-me.png" alt="Bebeto Portrait" class="portrait">
         
+        <!-- Glass Buttons Overlay -->
         <div class="glass-actions">
-          <div class="active-pill" [class.shift]="hoverHire"></div>
-          <button class="action-btn" (mouseenter)="hoverHire = false">
-            Portfolio <i class="fa-solid fa-arrow-up-right"></i>
+          <div class="active-pill" [class.shift]="activeTab === 'hire'"></div>
+          
+          <button class="action-btn" (click)="setActiveTab('portfolio')">
+            Portfolio 
+            <i class="fa-solid fa-arrow-right-long" style="transform: rotate(-45deg);"></i>
           </button>
-          <button class="action-btn" (mouseenter)="hoverHire = true">
+          
+          <button class="action-btn" (click)="setActiveTab('hire')">
             Hire me
           </button>
         </div>
       </div>
 
+      <!-- Right Info: Experience -->
       <div class="info-block right">
         <div class="stars">
-          @for (star of [1,2,3,4,5]; track $index) {
+          @for (star of [1,2,3,4,5]; track star) {
             <i class="fa-solid fa-star"></i>
           }
         </div>
-        <h2 class="exp-val">4 Years</h2>
-        <p class="exp-label">Experience</p>
+        <h3 class="exp-val">4 Years</h3>
+        <span class="exp-label">Experience</span>
       </div>
 
     </div>

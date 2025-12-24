@@ -1,31 +1,24 @@
-:host {
-  --primary-orange: #ff8a00;
-  --dark-navy: #1e293b;
-  --text-muted: #64748b;
-  --card-bg: #ffffff;
-}
-
 .why-hire-me {
-  padding: 80px 60px;
-  background-color: var(--card-bg);
-  margin: 10px auto;
+  padding: 50px 40px;
+  background-color: var(--bg-main);
+  margin: 0 auto;
   max-width: 1400px;
 }
 
 .why-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 70px;
+  align-items: flex-start;
+  gap: 50px;
 }
 
-/* Image Styling - No more bg-shape */
+/* Image Styling */
 .why-image-wrapper {
   position: relative;
   display: flex;
-  justify-content: flex-end; /* Keeps portrait aligned to the right on desktop */
-  align-items: center;
-  height: 80%;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: auto;
 }
 
 .why-bg {
@@ -33,10 +26,60 @@
   height: 480px;
   background-image: url('/Assets/hire-me1.png');
   background-size: cover;
-  background-position: center top 10%; /* Adjust if needed to focus on face */
+  background-position: center top 10%;
   background-repeat: no-repeat;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+
+  &:hover .cv-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.cv-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border-radius: 20px;
+
+  .cv-btn {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 136, 0, 0.4);
+
+    i {
+      font-size: 14px;
+    }
+  }
+
+  &:hover .cv-btn {
+    transform: translateY(0);
+    background: white;
+    color: var(--color-primary);
+  }
 }
 
 /* Content */
@@ -46,54 +89,115 @@
   justify-content: center;
 
   .section-title {
-    font-size: 60px;
+    font-size: 52px;
     font-weight: 900;
-    color: var(--dark-navy);
-    margin: 0 0 30px 0;
-    line-height: 1;
+    color: var(--heading-color);
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+    text-align: left;
 
     .highlight {
-      color: var(--primary-orange);
+      color: var(--color-primary);
     }
   }
 
   .why-desc {
     color: var(--text-muted);
-    font-size: 18px;
-    line-height: 1.7;
-    margin: 0 0 50px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 30px 0;
     max-width: 520px;
+    text-align: left;
   }
 }
 
-.why-stats {
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.skill-item {
   display: flex;
-  gap: 120px;
-  margin-bottom: 60px;
+  align-items: center;
+  gap: 20px;
+  background: var(--bg-card);
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
 
-  .stat-box {
-    .stat-num {
-      display: block;
-      font-size: 52px;
-      font-weight: 900;
-      color: var(--dark-navy);
-      line-height: 1;
-    }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-sm);
+  }
+}
 
-    .stat-txt {
-      font-size: 18px;
-      color: var(--text-muted);
-      font-weight: 500;
+.circle-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  circle {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+  }
+
+  .bg-circle {
+    stroke: var(--border-color);
+  }
+
+  .progress-circle {
+    stroke: var(--color-primary);
+    transition: stroke-dashoffset 1.5s ease-out;
+  }
+
+  .inner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    .percent {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--heading-color);
     }
+  }
+}
+
+.skill-info {
+  .skill-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 0 0 4px 0;
+  }
+
+  .skill-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.4;
   }
 }
 
 .btn-hire-me {
   background: transparent;
-  color: var(--dark-navy);
-  border: 2px solid var(--dark-navy);
-  padding: 18px 50px;
-  font-size: 20px;
+  color: var(--heading-color);
+  border: 2px solid var(--heading-color);
+  padding: 16px 45px;
+  font-size: 18px;
   font-weight: 700;
   border-radius: 50px;
   cursor: pointer;
@@ -101,26 +205,27 @@
   align-self: flex-start;
 
   &:hover {
-    background-color: var(--dark-navy);
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
     color: white;
   }
 }
 
 /* Responsive */
 @media (max-width: 1200px) {
-  .why-stats {
-    gap: 80px;
+  .why-content .section-title {
+    font-size: 44px;
   }
 }
 
 @media (max-width: 992px) {
   .why-hire-me {
-    padding: 80px 40px;
+    padding: 50px 30px;
   }
 
   .why-container {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 40px;
     text-align: center;
   }
 
@@ -130,16 +235,20 @@
 
   .why-content {
     align-items: center;
+
+    .section-title {
+      text-align: center;
+    }
+
+    .why-desc {
+      margin: 0 auto 30px;
+      text-align: center;
+    }
   }
 
-  .why-desc {
-    margin: 0 auto 40px;
-    text-align: center;
-  }
-
-  .why-stats {
+  .skills-grid {
     justify-content: center;
-    gap: 80px;
+    text-align: left; /* Keep internal skill text left aligned */
   }
 
   .btn-hire-me {
@@ -148,22 +257,26 @@
 
   .why-bg {
     width: 320px;
-    height: 480px;
+    height: 400px;
   }
 }
 
 @media (max-width: 576px) {
-  .section-title {
-    font-size: 48px;
+  .why-hire-me {
+    padding: 40px 20px;
   }
 
-  .why-stats {
-    flex-direction: column;
-    gap: 30px;
+  .why-content .section-title {
+    font-size: 36px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .why-bg {
     width: 280px;
-    height: 420px;
+    height: 360px;
   }
 }

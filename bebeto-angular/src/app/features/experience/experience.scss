@@ -1,7 +1,7 @@
 /* Experience Section */
 .experience {
   background-color: var(--color-light);
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 .center-header {
@@ -9,14 +9,15 @@
   justify-content: center;
   text-align: center;
   width: 100%;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
 
 .experience .section-title {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: var(--color-dark);
   margin-bottom: 0;
   text-align: center;
+  line-height: 1.2;
 }
 
 .experience-timeline {
@@ -27,9 +28,9 @@
 .exp-item {
   display: grid;
   grid-template-columns: 1fr 80px 1fr;
-  gap: 40px;
+  gap: 35px;
   align-items: flex-start;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
 
 .exp-item:last-child {
@@ -41,14 +42,15 @@
 }
 
 .exp-place {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--color-dark);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  line-height: 1.3;
 }
 
 .exp-date {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #999;
   font-weight: 500;
 }
@@ -60,8 +62,8 @@
 }
 
 .exp-dot {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   position: relative;
   z-index: 2;
@@ -80,7 +82,7 @@
 
 .exp-line {
   width: 2px;
-  height: 80px;
+  height: 60px;
   background-image: linear-gradient(to bottom, #ddd 50%, transparent 50%);
   background-size: 2px 12px;
   background-repeat: repeat-y;
@@ -92,24 +94,43 @@
 }
 
 .exp-role {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--color-dark);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  line-height: 1.3;
 }
 
 .exp-desc {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #999;
   line-height: 1.6;
   max-width: 400px;
+  margin: 0;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .experience {
+    padding: 40px 0;
+  }
+
+  .center-header {
+    margin-bottom: 40px;
+  }
+
+  .experience .section-title {
+    font-size: 1.8rem;
+  }
+
   .exp-item {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
+    margin-bottom: 35px;
+  }
+
+  .exp-left, .exp-right {
+    text-align: left;
   }
 
   .exp-center {
@@ -120,14 +141,14 @@
 /* Large Desktop */
 @media (min-width: 1440px) {
   .exp-item {
-    gap: 100px;
+    gap: 80px;
   }
 
   .exp-place {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .exp-role {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 }

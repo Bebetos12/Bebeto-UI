@@ -5,7 +5,6 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  /* This is the most important line to fix the "cut" effect on Android */
   overflow-x: hidden; 
   position: relative;
   box-sizing: border-box;
@@ -68,8 +67,51 @@ html, body {
   /* Transitions */
   --transition: all 0.3s ease;
 
-  /* Container - Changed to a fluid max-width */
+  /* Container */
   --container-max-width: 1250px;
+
+  /* =========================================================
+     SEMANTIC VARIABLES (THEMING)
+     ========================================================= */
+  
+  /* Light Theme Defaults */
+  --bg-main: var(--color-white);
+  --bg-alt: var(--color-light);
+  --bg-card: var(--color-white);
+  
+  --text-main: var(--color-text);
+  --text-muted: var(--color-text-light);
+  --heading-color: var(--color-gray-900);
+  
+  --border-color: var(--color-gray-200);
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow-lg: 0 12px 16px -4px rgba(16, 24, 40, 0.08);
+}
+
+/* DARK MODE OVERRIDES */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-main: var(--color-dark);
+    --bg-alt: #1F1F1F; /* Darker grey for sections */
+    --bg-card: #262626;
+    
+    --text-main: var(--color-gray-100);
+    --text-muted: var(--color-gray-400);
+    --heading-color: var(--color-white);
+    
+    --border-color: var(--color-gray-700);
+    
+    /* Slightly lighter darks or specific overrides */
+    --color-gray-25: #1c1c1c; 
+    --color-light: #121212; 
+    --color-white: #ffffff; /* Keep white as white for things that must stay white */
+    
+    /* Invert low-opacity shadows for glow effects? 
+       For now, keep simple shadows or make them subtle borders 
+    */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 12px 16px -4px rgba(0, 0, 0, 0.5);
+  }
 }
 
 /* ============================================
@@ -77,23 +119,21 @@ html, body {
    ============================================ */
 
 .container {
-  width: 90%;             /* Default for mobile - 5% gap on each side */
-  max-width: var(--container-max-width);
-  margin: 0 auto;         /* Centers the container */
-  padding: 0;             /* Removed the 71px fixed padding */
+  width: 90% !important;
+  max-width: var(--container-max-width) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
 }
 
-/* For larger tablets and desktops, we can make the container slightly tighter */
 @media (min-width: 1024px) {
   .container {
-    width: 85%;
+    width: 85% !important;
   }
 }
 
-/* For very large screens */
 @media (min-width: 1440px) {
   .container {
-    width: 100%; /* max-width 1250px will handle the rest */
+    width: 100% !important;
   }
 }
 
@@ -103,8 +143,8 @@ html, body {
 
 body {
   font-family: var(--font-family);
-  background-color: var(--color-white);
-  color: var(--color-text);
+  background-color: var(--bg-main);
+  color: var(--text-main);
   line-height: 1.6;
   font-size: 16px;
 }
@@ -131,10 +171,36 @@ ul {
 }
 
 img {
-  /* Critical for mobile: keeps images from pushing the screen sideways */
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* ============================================
+   TEXT ALIGNMENT & TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+/* Center align section titles by default */
+.section-title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2rem;
 }
 
 /* ============================================
@@ -142,24 +208,113 @@ img {
    ============================================ */
 
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 30px;
-  border-radius: var(--radius-xl);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  border: none;
-  white-space: nowrap;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px 30px !important;
+  border-radius: var(--radius-xl) !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: var(--transition) !important;
+  border: none !important;
+  white-space: nowrap !important;
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(253, 133, 58, 0.2);
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 20px rgba(253, 133, 58, 0.2) !important;
+    background-color: var(--color-primary) !important;
+    color: var(--color-white) !important;
+  }
+}
+
+/* ============================================
+   COMPACT SECTION SPACING - NO BIG GAPS
+   ============================================ */
+
+section {
+  padding: 50px 0;
+  position: relative;
+}
+
+/* Specific section adjustments for tighter spacing */
+section.hero {
+  padding: 40px 0 50px 0;
+  min-height: auto;
+}
+
+section.services {
+  padding: 60px 0;
+}
+
+section.experience {
+  padding: 50px 0;
+}
+
+section.why-hire-me {
+  padding: 50px 0;
+}
+
+section.portfolio {
+  padding: 60px 0;
+}
+
+section.testimonials {
+  padding: 50px 0;
+}
+
+section.cta {
+  padding: 40px 0;
+}
+
+section.scrolling-banner {
+  padding: 25px 0;
+  margin: 20px 0;
+}
+
+section.blog {
+  padding: 60px 0;
+}
+
+/* Responsive section spacing - even tighter on mobile */
+@media (max-width: 992px) {
+  section {
+    padding: 40px 0;
+  }
+  
+  section.services,
+  section.portfolio,
+  section.blog {
+    padding: 50px 0;
+  }
+
+  section.hero {
+    padding: 30px 0 40px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  section {
+    padding: 30px 0;
+  }
+  
+  section.services,
+  section.portfolio,
+  section.blog {
+    padding: 40px 0;
+  }
+
+  section.hero {
+    padding: 20px 0 30px 0;
+  }
+
+  section.scrolling-banner {
+    padding: 20px 0;
+    margin: 15px 0;
   }
 }
 

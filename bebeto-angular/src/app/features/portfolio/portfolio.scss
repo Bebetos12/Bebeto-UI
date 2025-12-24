@@ -1,8 +1,9 @@
+@use 'sass:map';
+
 .portfolio {
   padding: 80px 0;
-  background-color: #fff;
-
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  background-color: var(--bg-main);
+  position: relative;
 }
 
 .portfolio-header {
@@ -10,115 +11,343 @@
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 50px;
-  
+
   .section-title {
-    font-size: 44px; font-weight: 800; line-height: 1.1; color: #1a232e;
-    .highlight { color: #ff8a4c; }
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--heading-color);
+    line-height: 1.2;
+    margin: 0;
+    
+    .highlight { color: var(--color-primary); }
   }
 
   .see-all-btn {
-    background: #ff8a4c; color: #fff; border: none;
-    padding: 14px 30px; border-radius: 50px; font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(253, 133, 58, 0.3);
+    }
   }
 }
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
 .portfolio-card {
-  position: relative;
-  height: 450px;
-  border-radius: 40px;
+  background: var(--bg-card);
+  border-radius: 30px;
   overflow: hidden;
+  position: relative;
   cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
 
-  .image-wrapper { height: 100%; width: 100%; position: relative; }
-  .portfolio-img { width: 100%; height: 100%; object-fit: cover; }
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+
+    .card-image-wrapper {
+      .project-img { transform: scale(1.05); }
+      .overlay { opacity: 1; }
+    }
+
+    .card-arrow {
+      background: var(--color-primary);
+      color: white;
+      transform: rotate(-45deg);
+    }
+  }
+
+  .card-image-wrapper {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 30px;
+    margin: 10px;
+
+    .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      border-radius: 20px;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 20px;
+
+      .view-text {
+        color: white;
+        font-weight: 600;
+        padding: 10px 20px;
+        border: 1px solid white;
+        border-radius: 30px;
+        backdrop-filter: blur(5px);
+      }
+    }
+  }
+
+  .card-content {
+    padding: 15px 25px 25px;
+
+    .project-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin: 0 0 5px;
+    }
+
+    .project-category {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+  }
 
   .card-arrow {
     position: absolute;
-    top: 25px; right: 25px;
-    width: 55px; height: 55px;
-    background: #ff8a4c;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    display: flex; justify-content: center; align-items: center;
-    color: #fff; font-size: 18px;
-    border: 2px solid rgba(255,255,255,0.3);
-    z-index: 5;
-  }
-
-  /* The Sliding Glass Panel */
-  .glass-info-panel {
-    position: absolute;
-    bottom: 20px; left: 20px; right: 20px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-    padding: 30px;
-    
-    /* Reveal logic: Only show the top part (Title) initially */
-    height: 120px; 
+    background: var(--bg-alt);
+    color: var(--heading-color);
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    .info-title {
-      font-size: 52px;
-      font-weight: 800;
-      color: #fff;
-      margin: 0;
-      transition: transform 0.4s ease;
-    }
-
-    .info-desc {
-      font-size: 15px;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.5;
-      margin-top: 20px;
-      opacity: 0; /* Hidden by default */
-      transition: opacity 0.3s ease;
-    }
-  }
-
-  /* HOVER EFFECT: Card expands UP to show text */
-  &:hover {
-    .glass-info-panel {
-      height: 240px; /* Expands to show description */
-      background: rgba(255, 255, 255, 0.2);
-    }
-    .info-desc {
-      opacity: 1;
-    }
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 18px;
   }
 }
 
-/* Filter pills at the bottom */
-.filter-container {
-  display: flex; justify-content: center; gap: 12px; margin: 50px 0;
-  .filter-pill {
-    padding: 10px 24px; border-radius: 50px; border: none;
-    background: #f1f3f6; color: #4b5563; font-weight: 500; font-size: 14px;
+/* --- MODAL STYLES --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    border: none;
     cursor: pointer;
-    &:hover { background: #e5e7eb; }
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-gray-900);
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    &:hover {
+      background: var(--color-primary);
+      color: white;
+      transform: rotate(90deg);
+    }
   }
 }
 
-.portfolio-footer {
-  text-align: center;
-  .footer-title {
-    font-size: 36px; font-weight: 800; color: #1a232e;
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-    .arrow-circle {
-      width: 45px; height: 45px; background: #ff8a4c; color: #fff;
-      border-radius: 50%; display: inline-flex; justify-content: center; align-items: center;
-      i { transform: rotate(-45deg); font-size: 16px; }
+.modal-body {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  height: 100%;
+  overflow: hidden;
+}
+
+.modal-image-col {
+  background: var(--bg-alt);
+  height: 100%;
+  min-height: 400px;
+  
+  .modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.modal-info-col {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+
+  .brand-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      /* Filter to turn black to Orange #FD853A */
+      filter: invert(68%) sepia(61%) saturate(459%) hue-rotate(329deg) brightness(101%) contrast(98%);
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--heading-color);
     }
   }
-  .footer-desc { max-width: 750px; margin: 15px auto; color: #6b7280; line-height: 1.6; font-size: 15px;}
+
+  .modal-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--heading-color);
+    margin: 0 0 10px;
+    line-height: 1.1;
+  }
+
+  .modal-category {
+    font-size: 16px;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    display: block;
+  }
+
+  .modal-desc {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  .project-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--heading-color);
+    color: var(--bg-main);
+    padding: 16px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    width: fit-content;
+
+    &:hover {
+      background: var(--color-primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+  }
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal-body {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  .modal-image-col {
+    height: 300px;
+    min-height: auto;
+  }
+
+  .modal-info-col {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    .section-title { font-size: 36px; }
+  }
+
+  .portfolio-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding-bottom: 20px;
+    margin: 0 -20px;
+    padding: 0 20px 20px;
+    
+    .portfolio-card {
+      min-width: 300px;
+      scroll-snap-align: center;
+    }
+  }
+
+  .modal-content {
+    border-radius: 20px;
+  }
+
+  .modal-title { font-size: 28px; }
 }
