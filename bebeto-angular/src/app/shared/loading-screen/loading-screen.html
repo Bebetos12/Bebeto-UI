@@ -1,0 +1,36 @@
+<div class="loading-screen" [class.hidden]="isLoaded">
+  <div class="loading-content">
+    <!-- Animated Logo -->
+    <div class="logo-container">
+      <div class="logo-stack">
+        <div class="logo-box">
+          <img src="Assets/Bebeto-logo.png" alt="Bebeto Logo" class="logo-img">
+        </div>
+        <div class="name-section">
+          <span class="full-name">NIYERA Néré Brunel</span>
+          <span class="brand-name">𝔅𝔢𝔟𝔢𝔱𝔬</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Animation -->
+    <div class="loading-animation">
+      <div class="spinner">
+        <div class="spinner-circle"></div>
+      </div>
+      <div class="loading-text">
+        <span class="loading-dots">
+          <span>L</span><span>o</span><span>a</span><span>d</span><span>i</span><span>n</span><span>g</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="loading-progress">
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="progress"></div>
+      </div>
+      <div class="progress-text">{{ progress }}%</div>
+    </div>
+  </div>
+</div>

@@ -25,7 +25,7 @@ export class PortfolioComponent {
       id: 1,
       title: 'UI/UX Design',
       category: 'UI/UX',
-      image: '/Assets/portofolio images/UIUX.jpg',
+      image: 'Assets/portofolio images/UIUX.jpg',
       description: 'A comprehensive UI/UX design project focusing on user-centered design principles and intuitive interfaces.',
       link: '#'
     },
@@ -33,7 +33,7 @@ export class PortfolioComponent {
       id: 2,
       title: 'Web Development',
       category: 'Web Dev',
-      image: '/Assets/portofolio images/web dev.jpg',
+      image: 'Assets/portofolio images/web dev.jpg',
       description: 'Full-stack web development project utilizing modern frameworks and responsive design techniques.',
       link: '#'
     },
@@ -41,7 +41,7 @@ export class PortfolioComponent {
       id: 3,
       title: 'Product Design',
       category: 'Product Design',
-      image: '/Assets/portofolio images/product Design.jpg',
+      image: 'Assets/portofolio images/product Design.jpg',
       description: 'Innovative product design showcasing functionality and aesthetic appeal.',
       link: '#'
     },
@@ -49,7 +49,7 @@ export class PortfolioComponent {
       id: 4,
       title: 'Landing Page',
       category: 'Landing Page',
-      image: '/Assets/portofolio images/landing page.jpg',
+      image: 'Assets/portofolio images/landing page.jpg',
       description: 'High-converting landing page design with engaging visuals and clear calls to action.',
       link: '#'
     },
@@ -57,7 +57,7 @@ export class PortfolioComponent {
       id: 5,
       title: 'Glassmorphism UI',
       category: 'Glassmorphism',
-      image: '/Assets/portofolio images/glassmorphism.jpg',
+      image: 'Assets/portofolio images/glassmorphism.jpg',
       description: 'Modern user interface design featuring the trendy glassmorphism effect.',
       link: '#'
     },
@@ -65,7 +65,7 @@ export class PortfolioComponent {
       id: 6,
       title: 'Interactive Cards',
       category: 'Cards',
-      image: '/Assets/portofolio images/cards.jpg',
+      image: 'Assets/portofolio images/cards.jpg',
       description: 'Set of interactive and animated cards for displaying content dynamically.',
       link: '#'
     },
@@ -73,7 +73,7 @@ export class PortfolioComponent {
       id: 7,
       title: 'Motion Graphics',
       category: 'Animation',
-      image: '/Assets/portofolio images/Animation.jpg',
+      image: 'Assets/portofolio images/Animation.jpg',
       description: 'Engaging motion graphics and animations to enhance user experience.',
       link: '#'
     }

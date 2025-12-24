@@ -490,6 +490,68 @@ section.blog {
       transform: translateY(-2px);
     }
   }
+  
+  /* Custom Magnetic Cursor */
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+  
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      transition: transform 0.1s ease;
+    }
+  
+    .cursor-outline {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--color-primary);
+      border-radius: 50%;
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      opacity: 0.7;
+    }
+  
+    &.hover {
+      .cursor-dot {
+        transform: scale(1.5);
+      }
+  
+      .cursor-outline {
+        transform: scale(1.5);
+        opacity: 1;
+      }
+    }
+  
+    &.magnetic {
+      .cursor-outline {
+        transform: scale(2);
+        opacity: 0.3;
+      }
+    }
+  }
+  
+  /* Hide default cursor on interactive elements */
+  button,
+  a,
+  .portfolio-card,
+  .skill-item,
+  .fab,
+  .nav-item,
+  .action-btn,
+  .btn-hire-me {
+    cursor: none !important;
+  }
 }
 
 /* ============================================

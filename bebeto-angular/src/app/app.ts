@@ -12,6 +12,7 @@ import { ScrollingBannerComponent } from './features/scrolling-banner/scrolling-
 import { BlogComponent } from './features/blog/blog';
 import { Contact } from './features/contact/contact';
 import { FooterComponent } from './layout/footer/footer';
+import { LoadingScreen } from './shared/loading-screen/loading-screen';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,8 @@ import { FooterComponent } from './layout/footer/footer';
     ScrollingBannerComponent,
     BlogComponent,
     Contact,
-    FooterComponent
+    FooterComponent,
+    LoadingScreen
   ],
   templateUrl: './app.html'
 })
@@ -39,6 +41,7 @@ export class App implements OnInit {
   ngOnInit() {
     this.initScrollAnimations();
     this.initScrollProgress();
+    this.initMagneticCursor();
   }
 
   private initScrollAnimations() {
@@ -92,6 +95,50 @@ export class App implements OnInit {
 
     // Initial update
     updateUI();
+  }
+
+  private initMagneticCursor() {
+    const cursor = document.querySelector('.cursor') as HTMLElement;
+    const cursorDot = document.querySelector('.cursor-dot') as HTMLElement;
+    const cursorOutline = document.querySelector('.cursor-outline') as HTMLElement;
+
+    if (!cursor || !cursorDot || !cursorOutline) return;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+
+    // Smooth cursor following
+    const updateCursor = () => {
+      cursorX += (mouseX - cursorX) * 0.1;
+      cursorY += (mouseY - cursorY) * 0.1;
+
+      cursor.style.transform = `translate(${cursorX - 20}px, ${cursorY - 20}px)`;
+      cursorDot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
+
+      requestAnimationFrame(updateCursor);
+    };
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Magnetic effect on interactive elements
+    const magneticElements = document.querySelectorAll('button, a, .portfolio-card, .skill-item, .fab');
+
+    magneticElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('hover');
+      });
+
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover');
+      });
+    });
+
+    updateCursor();
   }
 
   scrollToTop() {
