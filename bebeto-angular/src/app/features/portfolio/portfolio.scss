@@ -55,18 +55,32 @@
   box-shadow: var(--shadow-sm);
 
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) rotate(1deg);
     box-shadow: var(--shadow-lg);
 
     .card-image-wrapper {
-      .project-img { transform: scale(1.05); }
-      .overlay { opacity: 1; }
+      .project-img {
+        transform: scale(1.05);
+        filter: brightness(1.1) contrast(1.1);
+      }
+      .overlay {
+        opacity: 1;
+        backdrop-filter: blur(10px);
+      }
+    }
+
+    .card-content {
+      .project-title {
+        color: var(--color-primary);
+        transform: translateX(5px);
+      }
     }
 
     .card-arrow {
       background: var(--color-primary);
       color: white;
-      transform: rotate(-45deg);
+      transform: rotate(-45deg) scale(1.1);
+      box-shadow: 0 4px 15px rgba(253, 133, 58, 0.4);
     }
   }
 
@@ -115,12 +129,14 @@
       font-weight: 700;
       color: var(--heading-color);
       margin: 0 0 5px;
+      transition: all 0.3s ease;
     }
 
     .project-category {
       font-size: 14px;
       color: var(--text-muted);
       font-weight: 500;
+      transition: color 0.3s ease;
     }
   }
 

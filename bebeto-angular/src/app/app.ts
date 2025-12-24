@@ -38,6 +38,7 @@ export class App implements OnInit {
 
   ngOnInit() {
     this.initScrollAnimations();
+    this.initScrollProgress();
   }
 
   private initScrollAnimations() {
@@ -54,10 +55,46 @@ export class App implements OnInit {
       });
     }, observerOptions);
 
-    // Observe all elements with fade-in class
+    // Observe all elements with animation classes
     setTimeout(() => {
-      const fadeElements = document.querySelectorAll('.fade-in');
-      fadeElements.forEach(el => observer.observe(el));
+      const animationElements = document.querySelectorAll(
+        '.fade-in-left, .fade-in-right, .fade-in-up, .fade-in-down, .fade-in-scale, .slide-in-left, .slide-in-right, .stagger-children'
+      );
+      animationElements.forEach(el => observer.observe(el));
     }, 100);
+  }
+
+  private initScrollProgress() {
+    const progressBar = document.querySelector('.scroll-progress-bar') as HTMLElement;
+    const fab = document.getElementById('backToTop') as HTMLElement;
+
+    const updateUI = () => {
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+
+      if (progressBar) {
+        progressBar.style.width = scrollPercent + '%';
+      }
+
+      // Show/hide FAB based on scroll position
+      if (fab) {
+        if (scrollTop > 300) {
+          fab.classList.add('show');
+        } else {
+          fab.classList.remove('show');
+        }
+      }
+    };
+
+    // Update on scroll
+    window.addEventListener('scroll', updateUI, { passive: true });
+
+    // Initial update
+    updateUI();
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

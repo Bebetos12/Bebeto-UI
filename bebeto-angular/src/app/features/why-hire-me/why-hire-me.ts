@@ -71,4 +71,8 @@ export class WhyHireMeComponent implements AfterViewInit {
     if (!this.shown) return circumference; // Start completely hidden (offset = circumference)
     return circumference - (percent / 100) * circumference;
   }
+
+  getAnimationDelay(index: number): string {
+    return `${index * 0.2}s`;
+  }
 }

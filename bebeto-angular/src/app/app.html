@@ -1,41 +1,51 @@
 <!-- Complete Bebeto Portfolio Application -->
 <main>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
   <!-- Navigation Header -->
   <app-header></app-header>
 
   <!-- Hero Section -->
-  <app-hero class="fade-in"></app-hero>
+  <app-hero class="fade-in-up"></app-hero>
 
   <!-- Services Section -->
-  <app-services class="fade-in"></app-services>
+  <app-services class="fade-in-left"></app-services>
 
   <!-- Experience Section -->
-  <app-experience class="fade-in"></app-experience>
+  <app-experience class="fade-in-right"></app-experience>
 
   <!-- Why Hire Me Section -->
-  <app-why-hire-me class="fade-in"></app-why-hire-me>
+  <app-why-hire-me class="fade-in-scale"></app-why-hire-me>
 
   <!-- Portfolio Section -->
-  <app-portfolio class="fade-in"></app-portfolio>
+  <app-portfolio class="slide-in-left"></app-portfolio>
 
   <!-- Testimonials Section -->
-  <app-testimonials class="fade-in"></app-testimonials>
+  <app-testimonials class="fade-in-up stagger-children"></app-testimonials>
 
   <!-- First CTA Section -->
-  <app-cta class="fade-in"></app-cta>
+  <app-cta class="fade-in-down"></app-cta>
 
   <!-- Scrolling Banner -->
-  <app-scrolling-banner class="fade-in"></app-scrolling-banner>
+  <app-scrolling-banner class="fade-in-left"></app-scrolling-banner>
 
   <!-- Blog Section -->
-  <app-blog class="fade-in"></app-blog>
+  <app-blog class="slide-in-right"></app-blog>
 
   <!-- Contact Section -->
-  <app-contact class="fade-in"></app-contact>
+  <app-contact class="fade-in-up"></app-contact>
 
   <!-- Footer -->
   <app-footer></app-footer>
 
+  <!-- Floating Action Button -->
+  <button class="fab" id="backToTop" (click)="scrollToTop()" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
   <!-- Router Outlet for potential additional pages -->
   <router-outlet></router-outlet>
-</main>
+  </main>

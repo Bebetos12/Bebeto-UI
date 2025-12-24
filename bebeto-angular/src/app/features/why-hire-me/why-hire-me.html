@@ -14,7 +14,7 @@
         With a passion for crafting intuitive user experiences and a deep understanding of modern web technologies, I transform ideas into engaging digital solutions.
       </p>
 
-      <div class="skills-grid" #skillsSection>
+      <div class="skills-grid stagger-children" #skillsSection>
         @for (skill of skills; track skill.name) {
           <div class="skill-item">
             <div class="circle-wrap">
@@ -22,16 +22,17 @@
                 <circle cx="50" cy="50" [attr.r]="skill.radius" class="bg-circle"></circle>
                 <circle cx="50" cy="50" [attr.r]="skill.radius" class="progress-circle"
                   [style.stroke-dasharray]="getCircumference(skill.radius)"
-                  [style.stroke-dashoffset]="getDashOffset(skill.radius, skill.percent)">
+                  [style.stroke-dashoffset]="getDashOffset(skill.radius, skill.percent)"
+                  [style.animation-delay]="getAnimationDelay($index)">
                 </circle>
               </svg>
               <div class="inner-text">
-                <span class="percent">{{ skill.percent }}%</span>
+                <span class="percent" [style.animation-delay]="getAnimationDelay($index)">{{ skill.percent }}%</span>
               </div>
             </div>
             <div class="skill-info">
-              <h4 class="skill-name">{{ skill.name }}</h4>
-              <p class="skill-desc">{{ skill.desc }}</p>
+              <h4 class="skill-name" [style.animation-delay]="getAnimationDelay($index)">{{ skill.name }}</h4>
+              <p class="skill-desc" [style.animation-delay]="getAnimationDelay($index)">{{ skill.desc }}</p>
             </div>
           </div>
         }
