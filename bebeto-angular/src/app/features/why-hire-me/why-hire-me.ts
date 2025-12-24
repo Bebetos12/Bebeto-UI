@@ -8,10 +8,9 @@ import { Component } from '@angular/core';
 })
 export class WhyHireMeComponent {
   readonly stats = [
-    { number: '10+', label: 'Project Completed' },
-    { number: '5+', label: 'Happy client' }
+    { number: '5', label: 'Project Completed' },
+    { number: '5', label: 'clients happy' }
   ];
-
 
   hireMe() {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });

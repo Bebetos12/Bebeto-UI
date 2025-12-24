@@ -1,6 +1,10 @@
 .testimonials {
+  background-image: url('/Assets/background.png'); /* Dark wavy background */
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: #0b0b0b;
   padding: 100px 0;
-  background: #0d0d0d; // Dark background matching image
   overflow: hidden;
 
   .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
