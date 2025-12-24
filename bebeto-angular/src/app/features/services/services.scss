@@ -13,10 +13,10 @@
   position: absolute;
   z-index: 1;
   pointer-events: none;
-  filter: blur(20px);
+  filter: blur(8px);
   animation: floating 8s ease-in-out infinite;
 
-  img { width: 100%; height: auto; opacity: 0.6; }
+  img { width: 100%; height: auto; opacity: 0.8; }
 
   &.v1 { top: 10%; left: 10%; width: 250px; animation-delay: 0s; }
   &.v2 { top: 40%; right: 15%; width: 300px; animation-delay: -2s; }

@@ -1,13 +1,35 @@
 .testimonials {
   background-image: url('/Assets/background.png');
-  background-size: 100% auto;
-  background-position: top center;
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
   background-color: #0b0b0b;
   padding: 50px 0;
   overflow: hidden;
+  position: relative;
 
   .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+}
+
+/* --- ANIMATIONS DES VECTEURS 3D --- */
+.vector-bg {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(8px);
+  animation: floating 8s ease-in-out infinite;
+
+  img { width: 100%; height: auto; opacity: 0.8; }
+
+  &.v1 { top: 15%; left: 5%; width: 200px; animation-delay: 0s; }
+  &.v2 { top: 60%; right: 10%; width: 250px; animation-delay: -2s; }
+  &.v3 { bottom: 15%; left: 50%; width: 180px; animation-delay: -4s; }
+}
+
+@keyframes floating {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  33% { transform: translate(15px, -25px) rotate(5deg) scale(1.05); }
+  66% { transform: translate(-10px, 15px) rotate(-3deg) scale(0.95); }
 }
 
 .testimonials-header {

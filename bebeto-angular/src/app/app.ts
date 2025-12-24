@@ -12,7 +12,6 @@ import { ScrollingBannerComponent } from './features/scrolling-banner/scrolling-
 import { BlogComponent } from './features/blog/blog';
 import { Contact } from './features/contact/contact';
 import { FooterComponent } from './layout/footer/footer';
-import { LoadingScreen } from './shared/loading-screen/loading-screen';
 
 @Component({
   selector: 'app-root',
@@ -30,8 +29,7 @@ import { LoadingScreen } from './shared/loading-screen/loading-screen';
     ScrollingBannerComponent,
     BlogComponent,
     Contact,
-    FooterComponent,
-    LoadingScreen
+    FooterComponent
   ],
   templateUrl: './app.html'
 })
